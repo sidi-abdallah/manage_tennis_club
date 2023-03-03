@@ -7,8 +7,6 @@ import java.sql.Date;
 @Table(name = "Inscription", schema = "sidi-abdallah", catalog = "clinique")
 public class InscriptionEntity {
     @Basic
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
     @Column(name = "numeroAdherent")
     private int numeroAdherent;
     @Basic
@@ -17,6 +15,18 @@ public class InscriptionEntity {
     @Basic
     @Column(name = "codeTournoi")
     private int codeTournoi;
+    @Basic
+    @Id
+    @Column(name = "id")
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public int getNumeroAdherent() {
         return numeroAdherent;
