@@ -1,7 +1,9 @@
 <%@ page import="org.hibernate.boot.model.relational.Database" %>
 <%@ page import="fr.ensicaen.sidiabdallah.tennis.appli.DataBase" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="fr.ensicaen.sidiabdallah.tennis.entities.InscriptionEntity" %><%--
+<%@ page import="fr.ensicaen.sidiabdallah.tennis.entities.InscriptionEntity" %>
+<%@ page import="fr.ensicaen.sidiabdallah.tennis.entities.TournoiEntity" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: sidi-abdallah
   Date: 27/02/2023
@@ -22,8 +24,8 @@
     <input type="submit" value="Connect">
 </form>
     <% DataBase base = new DataBase();
-        ArrayList<InscriptionEntity> list = base.getInsecriptionEntity();
-        for(InscriptionEntity entity: list) {
+        List<TournoiEntity> list = base.getTournoiEntity();
+        for(TournoiEntity entity: list) {
             System.out.println(entity.getCodeTournoi() + "<br>");
         }
 

@@ -3,29 +3,29 @@ package fr.ensicaen.sidiabdallah.tennis.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Adherent", schema = "sidi-abdallah", catalog = "clinique")
+@Table(name = "'Adherent'", schema = "sidi-abdallah", catalog = "clinique")
 public class AdherentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "numeroAdherent")
+    @Column(name = "'numeroAdherent'")
     private int numeroAdherent;
     @Basic
-    @Column(name = "Nom ")
+    @Column(name = "'Nom'")
     private String nom;
     @Basic
-    @Column(name = "Prenom")
+    @Column(name = "'Prenom'")
     private String prenom;
     @Basic
-    @Column(name = "Adresse")
+    @Column(name = "'Adresse'")
     private String adresse;
     @Basic
-    @Column(name = "Telephone")
+    @Column(name = "'Telephone'")
     private String telephone;
     @Basic
-    @Column(name = "Email")
+    @Column(name = "'Email'")
     private String email;
     @Basic
-    @Column(name = "Password")
+    @Column(name = "'Password'")
     private String password;
 
     public int getNumeroAdherent() {

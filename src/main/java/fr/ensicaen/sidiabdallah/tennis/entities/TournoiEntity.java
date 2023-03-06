@@ -4,24 +4,21 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "Tournoi", schema = "sidi-abdallah", catalog = "clinique")
+@Table(name = "`Tournoi`", schema = "sidi-abdallah", catalog = "clinique")
 public class TournoiEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "codeTournoi")
+    @Column(name = "`codeTournoi`")
     private int codeTournoi;
     @Basic
-    @Column(name = "Nom")
+    @Column(name = "`Nom`")
     private String nom;
     @Basic
-    @Column(name = "Date ")
+    @Column(name = "`Date`")
     private Date date;
     @Basic
-    @Column(name = "Lieu")
+    @Column(name = "`Lieu`")
     private String lieu;
-    @Basic
-    @Column(name = "new_column")
-    private Integer newColumn;
 
     public int getCodeTournoi() {
         return codeTournoi;
@@ -55,14 +52,6 @@ public class TournoiEntity {
         this.lieu = lieu;
     }
 
-    public Integer getNewColumn() {
-        return newColumn;
-    }
-
-    public void setNewColumn(Integer newColumn) {
-        this.newColumn = newColumn;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -74,7 +63,6 @@ public class TournoiEntity {
         if (nom != null ? !nom.equals(that.nom) : that.nom != null) return false;
         if (date != null ? !date.equals(that.date) : that.date != null) return false;
         if (lieu != null ? !lieu.equals(that.lieu) : that.lieu != null) return false;
-        if (newColumn != null ? !newColumn.equals(that.newColumn) : that.newColumn != null) return false;
 
         return true;
     }
@@ -85,7 +73,6 @@ public class TournoiEntity {
         result = 31 * result + (nom != null ? nom.hashCode() : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (lieu != null ? lieu.hashCode() : 0);
-        result = 31 * result + (newColumn != null ? newColumn.hashCode() : 0);
         return result;
     }
 }

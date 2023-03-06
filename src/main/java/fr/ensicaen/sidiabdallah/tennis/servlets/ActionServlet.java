@@ -13,8 +13,8 @@ import java.io.IOException;
 
 import java.util.List;
 
-@WebServlet(name = "servlet", urlPatterns = "/servlet")
-public class Servlet extends HttpServlet {
+@WebServlet(name = "actionServlet", urlPatterns = "/actionServlet")
+public class ActionServlet extends HttpServlet {
     private EntityManager _entityManager;
    // private EntityManagerFactory _emf;
 
