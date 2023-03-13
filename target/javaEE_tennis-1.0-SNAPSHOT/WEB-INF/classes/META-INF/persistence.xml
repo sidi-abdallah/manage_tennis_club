@@ -6,7 +6,7 @@
     <persistence-unit name="TennisUnit">
 
         <class>fr.ensicaen.sidiabdallah.tennis.entities.AdherentEntity</class>
-        <!--<class>fr.ensicaen.sidiabdallah.tennis.entities.InscriptionEntity</class>-->
+        <class>fr.ensicaen.sidiabdallah.tennis.entities.InscriptionEntity</class>
         <class>fr.ensicaen.sidiabdallah.tennis.entities.TournoiEntity</class>
         <properties>
             <property name="hibernate.connection.url"

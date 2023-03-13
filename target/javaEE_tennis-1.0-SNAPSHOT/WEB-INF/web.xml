@@ -4,17 +4,18 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>login.html</welcome-file>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>Index.html</welcome-file>
+        <welcome-file>Login.html</welcome-file>
+        <welcome-file>Login.jsp</welcome-file>
+        <welcome-file>Menu.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name> servlet</servlet-name>
-        <servlet-class>fr.ensicaen.sidiabdallah.tennis.servlets.Servlet</servlet-class>
+        <servlet-name> actionServlet</servlet-name>
+        <servlet-class>fr.ensicaen.sidiabdallah.tennis.servlets.ActionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>servlet</servlet-name>
-        <url-pattern>/sevlet</url-pattern>
+        <servlet-name>actionServlet</servlet-name>
+        <url-pattern>/actionServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>

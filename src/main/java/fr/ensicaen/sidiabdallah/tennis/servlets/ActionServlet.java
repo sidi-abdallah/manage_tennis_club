@@ -1,5 +1,6 @@
 package fr.ensicaen.sidiabdallah.tennis.servlets;
 
+import fr.ensicaen.sidiabdallah.tennis.entities.AdherentEntity;
 import fr.ensicaen.sidiabdallah.tennis.entities.InscriptionEntity;
 
 
@@ -15,41 +16,49 @@ import java.util.List;
 
 @WebServlet(name = "actionServlet", urlPatterns = "/actionServlet")
 public class ActionServlet extends HttpServlet {
-    private EntityManager _entityManager;
-   // private EntityManagerFactory _emf;
 
-    @Override
-    public void init() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("TennisUnit");
-        _entityManager = emf.createEntityManager();
-        List<InscriptionEntity> entities = _entityManager.createQuery("SELECT e FROM InscriptionEntity e", InscriptionEntity.class).getResultList();
-        for (InscriptionEntity entity : entities) {
-            System.out.println(entity.getCodeTournoi());
-        }
-        /* try {
-            Class.forName("org.postgresql.Driver");
-            _connection =  DriverManager.getConnection("jdbc:postgresql://eensicaen.fr//clinique", "sidi-abdallah", "Mokhtar19012");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }*/
-        //connection =
-
-    }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String action = request.getParameter("action");
+        RequestDispatcher dispatcher;
 
-        response.setContentType("text/html");
+        //response.setContentType("text/html");
+//        // Récupération de la session associée à la requête
+        HttpSession session = request.getSession(false);
 
-       // Writer writer = response.getWriter();
+        AdherentEntity adh;
 
-        response.getWriter().println("<html><body>");
-        response.getWriter().println("<h1>Récapitulatif des informations saisies</h1>");
-        response.getWriter().println("<p>email : " + email + "</p>");
-        response.getWriter().println("<p>password : " + password + "</p>");
-       // response.getWriter().println("<p>Email : " + email + "</p>");
-        response.getWriter().println("</body></html>");
+        if (session != null /*&& adh != null && session.getAttribute("email").equals(email)*/) {
+            adh = (AdherentEntity)session.getAttribute("adherent");
+            if(action.equals("A")) {
+                dispatcher = request.getRequestDispatcher("./adherentServlet");
+                dispatcher.forward(request, response);
+            }
+            else if(action.equals("I")) {
+                dispatcher = request.getRequestDispatcher("./inscriptionServlet");
+                dispatcher.forward(request, response);
+            }
+            else {
+
+                dispatcher = request.getRequestDispatcher("./Menu.jsp");
+                dispatcher.forward(request, response);
+            }
+
+        } else {
+            if(action.equals("L")) {
+                dispatcher = request.getRequestDispatcher("./loginServlet");
+                dispatcher.forward(request, response);
+            }
+            else {
+
+                dispatcher = request.getRequestDispatcher("./Login.html");
+                dispatcher.forward(request, response);
+            }
+
+        }
+
 
     }
 }

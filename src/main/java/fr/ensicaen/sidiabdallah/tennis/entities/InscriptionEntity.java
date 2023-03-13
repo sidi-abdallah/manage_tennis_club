@@ -4,20 +4,20 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "'Inscription'", schema = "sidi-abdallah", catalog = "clinique")
+@Table(name = "`Inscription`", schema = "sidi-abdallah", catalog = "clinique")
 public class InscriptionEntity {
     @Basic
-    @Column(name = "'numeroAdherent'")
+    @Column(name = "`numeroAdherent`")
     private int numeroAdherent;
     @Basic
-    @Column(name = "'DateInscription'")
+    @Column(name = "`DateInscription`")
     private Date dateInscription;
     @Basic
-    @Column(name = "'codeTournoi'")
+    @Column(name = "`codeTournoi`")
     private int codeTournoi;
     @Basic
     @Id
-    @Column(name = "'id'")
+    @Column(name = "`id`")
     private Integer id;
 
     public Integer getId() {
