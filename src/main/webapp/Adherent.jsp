@@ -1,4 +1,6 @@
-<%@ page import="fr.ensicaen.sidiabdallah.tennis.entities.AdherentEntity" %><%--
+<%@ page import="fr.ensicaen.sidiabdallah.tennis.entities.AdherentEntity" %>
+<%@ page import="fr.ensicaen.sidiabdallah.tennis.entities.TournoiEntity" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: sidi-abdallah
   Date: 09/03/2023
@@ -11,7 +13,9 @@
     <titl>Adherent page</titl></title>
 </head>
 <body>
-<% AdherentEntity adh = (AdherentEntity) request.getSession().getAttribute("adherent");%>
+<% AdherentEntity adh = (AdherentEntity) request.getSession().getAttribute("adherent");
+    List<TournoiEntity> tournois = (List<TournoiEntity>) request.getAttribute("tournois");
+%>
     <h2> Informations adhérent </h2>
     <table>
         <tr>
@@ -44,12 +48,18 @@
 <table>
     <th>
     <td> Code</td>
-    <td> Nom</td>
+    <td> Nom </td>
     <td> Date</td>
     <td> Lieu</td>
-    <td> </td>
     </th>
-    <tr></tr>
+   <% for(TournoiEntity tournoi : tournois) { %>
+    <tr><td> <%= tournoi.getCodeTournoi()%></td>
+        <td><%= tournoi.getNom() %></td>
+        <td><%= tournoi.getDate() %></td>
+        <td><%= tournoi.getLieu() %></td>
+        <td> <a href = "actionServlet?action=I">  Desinscription</a></td>
+    </tr>
+        <% } %>
 
 </table>
 </body>

@@ -17,8 +17,8 @@
 <h3> Vous étes <%=adherent.getNom() + " "%> <%=adherent.getPrenom()%> </h3>
 
 <ul>
-    <li> <a href = /action? code = A>Consultation de votre dossier adhérent</a> </li>
-    <li> <a href = /action? code = I>  Inscription à un tournoi</a> </li>
+    <li> <a href = "actionServlet?action=A">Consultation de votre dossier adhérent</a> </li>
+    <li> <a href = "actionServlet?action=I">  Inscription à un tournoi</a> </li>
 </ul>
 <%-- Utilisez l'objet Person --%>
 
