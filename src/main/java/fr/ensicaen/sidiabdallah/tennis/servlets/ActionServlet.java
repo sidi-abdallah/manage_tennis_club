@@ -15,23 +15,22 @@ public class ActionServlet extends HttpServlet {
         String password = request.getParameter("password");
         String action = request.getParameter("action");
         RequestDispatcher dispatcher;
-
-        // Récupération de la session associée à la requête
+        // get the session and don't create it if it doesn't exist
         HttpSession session = request.getSession(false);
 
-        //AdherentEntity adh = (AdherentEntity)session.getAttribute("adherent");
-
-        if (session != null /*&& /*adh != null*/) {
+        if (session != null) {
 
             if(action.equals("A")) {
                 dispatcher = request.getRequestDispatcher("adherentServlet");
                 dispatcher.forward(request, response);
-                System.out.println("en adherent");
             }
             else if(action.equals("I")) {
                 dispatcher = request.getRequestDispatcher("inscriptionServlet");
                 dispatcher.forward(request, response);
-                System.out.println("en inscription");
+            }
+            else if(action.equals("D")) {
+                dispatcher = request.getRequestDispatcher("desinscriptionServlet");
+                dispatcher.forward(request, response);
             }
             else {
 

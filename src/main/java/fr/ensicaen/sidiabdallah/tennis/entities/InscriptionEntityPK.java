@@ -7,13 +7,13 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 public class InscriptionEntityPK implements Serializable {
-    @Column(name = "codeTournoi")
+    @Column(name = "`codeTournoi`")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+  //  @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codeTournoi;
-    @Column(name = "numeroAdherent")
+    @Column(name = "`numeroAdherent`")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+  //  @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int numeroAdherent;
 
     public int getCodeTournoi() {

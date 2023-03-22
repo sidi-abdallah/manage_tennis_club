@@ -12,15 +12,7 @@ import java.util.List;
 
 @WebServlet(name = "loginServlet", value = "/loginServlet")
 public class LoginServlet extends HttpServlet {
-  //  private EntityManager _entityManager;
 
-    @Override
-    public void init() {
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("TennisUnit");
-//        _entityManager = emf.createEntityManager();
-
-
-    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -31,16 +23,12 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         RequestDispatcher dispatcher;
-        //List<AdherentEntity> entities = _entityManager.createQuery("SELECT e FROM AdherentEntity e", AdherentEntity.class).getResultList();
-        List<AdherentEntity> adherents = DataBase.getInstance().getAdherentEntity();
+        List<AdherentEntity> adherents = DataBase.getInstance().getAdherentEntities();
         for (AdherentEntity adherent: adherents) {
-            //System.out.println(entity.getPassword());
             if(adherent.getEmail().equals(email) && adherent.getPassword().equals(password)) {
-                // Création de la session utilisateur
+                // Create a session if it doesn't exit yet
                 HttpSession session = request.getSession(true);
                 session.setAttribute("adherent", adherent);
-              //  System.out.println("hello");
-               // session.setAttribute("adherent", adherent);
                 dispatcher = request.getRequestDispatcher("./Menu.jsp");
                 dispatcher.forward(request, response);
             }

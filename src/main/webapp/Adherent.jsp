@@ -10,13 +10,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <titl>Adherent page</titl></title>
+    <titl>Adherent</titl></title>
 </head>
 <body>
 <% AdherentEntity adh = (AdherentEntity) request.getSession().getAttribute("adherent");
     List<TournoiEntity> tournois = (List<TournoiEntity>) request.getAttribute("tournois");
 %>
-    <h2> Informations adhérent </h2>
+    <h1> Informations adhérent </h1>
     <table>
         <tr>
             <td> Numero </td>
@@ -44,7 +44,7 @@
         </tr>
 
     </table>
-    <h2>Tournois auxquels vous êtes inscrits</h2>
+    <h1>Tournois auxquels vous êtes inscrits</h1>
 <table>
     <th>
     <td> Code</td>
@@ -57,10 +57,11 @@
         <td><%= tournoi.getNom() %></td>
         <td><%= tournoi.getDate() %></td>
         <td><%= tournoi.getLieu() %></td>
-        <td> <a href = "actionServlet?action=I">  Desinscription</a></td>
+        <td> <a href = "actionServlet?action=D&codeTournoi=<%=tournoi.getCodeTournoi()%>">  Desinscription</a></td>
     </tr>
         <% } %>
-
 </table>
+
+<p> <a href = "Menu.jsp"> Revenir au menu principal</a></p>
 </body>
 </html>

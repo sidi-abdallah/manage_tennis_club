@@ -7,11 +7,11 @@ import java.sql.Date;
 @Table(name = "`Inscription`", schema = "sidi-abdallah", catalog = "clinique")
 @IdClass(InscriptionEntityPK.class)
 public class InscriptionEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+ //   @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "`codeTournoi`")
     private int codeTournoi;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "`numeroAdherent`")
     private int numeroAdherent;

@@ -2,30 +2,26 @@ package fr.ensicaen.sidiabdallah.tennis.servlets;
 
 import fr.ensicaen.sidiabdallah.tennis.appli.DataBase;
 import fr.ensicaen.sidiabdallah.tennis.entities.AdherentEntity;
-import fr.ensicaen.sidiabdallah.tennis.entities.TournoiEntity;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name = "adherentServlet", value = "/adherentServlet")
-public class AdherentServlet extends HttpServlet {
+@WebServlet(name = "desinscriptionServlet", value = "/desinscriptionServlet")
+public class DesinscriptionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            doPost(request, response);
+        doPost(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher rd;
+        String codeTournoi = request.getParameter("codeTournoi");
         AdherentEntity adherent = (AdherentEntity)request.getSession().getAttribute("adherent");
-        List<TournoiEntity> tournois = DataBase.getInstance().getTournois(adherent);
-        request.setAttribute("tournois", tournois);
-        RequestDispatcher dispatcher;
-        dispatcher = request.getRequestDispatcher("./Adherent.jsp");
-        dispatcher.forward(request, response);
-
-
+        DataBase.getInstance().removeFromInscription(adherent.getNumeroAdherent(), Integer.parseInt(codeTournoi));
+        rd = request.getRequestDispatcher("/adherentServlet");
+        rd.forward(request, response);
     }
 }

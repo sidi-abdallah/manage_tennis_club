@@ -20,7 +20,6 @@
     <li> <a href = "actionServlet?action=A">Consultation de votre dossier adhérent</a> </li>
     <li> <a href = "actionServlet?action=I">  Inscription à un tournoi</a> </li>
 </ul>
-<%-- Utilisez l'objet Person --%>
 
 </body>
 </html>

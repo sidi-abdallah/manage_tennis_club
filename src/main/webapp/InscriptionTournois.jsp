@@ -12,7 +12,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>InscriptionTournois</title>
 </head>
 <body>
 <% AdherentEntity adherent = (AdherentEntity) request.getSession().getAttribute("adherent");
@@ -26,7 +26,7 @@
         <td><%= tournoi.getNom()%></td>
         <td><%= tournoi.getDate() %></td>
         <td><%= tournoi.getLieu() %></td>
-        <td> <a href = "actionServlet?action=I&codeTournoi="+<%= tournoi.getCodeTournoi()%>>  Inscription</a></td>
+        <td> <a href = "actionServlet?action=I&codeTournoi=<%=tournoi.getCodeTournoi()%>">  Inscription</a></td>
     </tr>
     <% } %>
 </table>

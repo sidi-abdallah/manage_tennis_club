@@ -22,17 +22,19 @@ public class InscriptionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AdherentEntity adherent = (AdherentEntity)request.getSession().getAttribute("adherent");
         String codeTournoi = request.getParameter("codeTournoi");
-        List<TournoiEntity> tournois = DataBase.getInstance().getTournoiEntity();
-        Date date = new Date();
-        request.setAttribute("tournois", tournois); // ajouter l'attribut "inscriptions" à la requête
+        List<TournoiEntity> tournois = DataBase.getInstance().getTournoiEntities();
+        RequestDispatcher dispatcher;
+        request.setAttribute("tournois", tournois);
         if(codeTournoi == null) {
-            RequestDispatcher dispatcher;
             dispatcher = request.getRequestDispatcher("./InscriptionTournois.jsp");
             dispatcher.forward(request, response);
         } else {
-            DataBase.getInstance().insertIntoInscrption(adherent.getNumeroAdherent(), date, Integer.parseInt(codeTournoi));
-            RequestDispatcher dispatcher;
+            TournoiEntity tournoi = DataBase.getInstance().getTournoi(Integer.parseInt(codeTournoi));
+            request.setAttribute("tournoi", tournoi);
+            boolean isAlreadyInscrit = DataBase.getInstance().insertIntoInscrption(adherent, Integer.parseInt(codeTournoi));
+            request.setAttribute("isAlreadyInscrit", isAlreadyInscrit);
             dispatcher = request.getRequestDispatcher("./InscriptionStatus.jsp");
+            dispatcher.forward(request, response);
         }
 
 

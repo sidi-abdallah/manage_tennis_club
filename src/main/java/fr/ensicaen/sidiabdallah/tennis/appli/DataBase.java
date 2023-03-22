@@ -5,6 +5,7 @@ import fr.ensicaen.sidiabdallah.tennis.entities.InscriptionEntity;
 import fr.ensicaen.sidiabdallah.tennis.entities.TournoiEntity;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.ArrayList;
@@ -24,21 +25,21 @@ public class DataBase {
         em = Persistence.createEntityManagerFactory("TennisUnit").createEntityManager();
     }
 
-    public static List<TournoiEntity> getTournoiEntity() {
+    public static List<TournoiEntity> getTournoiEntities() {
         Query query = em.createQuery("from TournoiEntity");
         List<TournoiEntity> list = (List<TournoiEntity>) query.getResultList();
         return list;
 
     }
 
-    public static List<AdherentEntity> getAdherentEntity() {
+    public static List<AdherentEntity> getAdherentEntities() {
         Query query = em.createQuery("from AdherentEntity");
         List<AdherentEntity> list = (List<AdherentEntity>) query.getResultList();
         return list;
 
     }
 
-    public static List<InscriptionEntity> getInscriptionEntity() {
+    public static List<InscriptionEntity> getInscriptionEntities() {
         Query query = em.createQuery("from InscriptionEntity");
         List<InscriptionEntity> list = (List<InscriptionEntity>) query.getResultList();
         return list;
@@ -46,13 +47,9 @@ public class DataBase {
     }
 
     public static List<TournoiEntity> getTournois(AdherentEntity adherent) {
-        //String hql = "from TournoiEntity t INNER JOIN InscriptionEntity i ON t.codeTournoi = i.codeTournoi WHERE i.numeroAdherent = :num";
-//        String hql = "from TournoiEntity";
-        //List<AdherentEntity> adherententities = getAdherentEntity();
-        List<InscriptionEntity> inscriptionEntities = getInscriptionEntity();
-        List<TournoiEntity> tournoiEntities = getTournoiEntity();
+        List<InscriptionEntity> inscriptionEntities = getInscriptionEntities();
+        List<TournoiEntity> tournoiEntities = getTournoiEntities();
         System.out.println(tournoiEntities.get(0).getCodeTournoi());
-        //System.out.println(inscriptionEntities.get(0).getCodeTournoi());
         List<TournoiEntity> tournois = new ArrayList<>();
         for(InscriptionEntity inscription : inscriptionEntities) {
             if(inscription.getNumeroAdherent() == adherent.getNumeroAdherent()) {
@@ -63,21 +60,53 @@ public class DataBase {
                 }
             }
         }
-//        Query query = em.createQuery(hql);
-//        //query.setParameter("num", adherent.getNumeroAdherent());
-//        List<TournoiEntity> tournois = (List<TournoiEntity>)query.getResultList();
         return tournois;
     }
 
-    public static void insertIntoInscrption(int numAdherent, Date dateInsc, int codeTournoi) {
-        String hql = "INSERT INTO inscriptionEntity (numerAdherent, DateInscription, codeTournoi) VALUES (:numeroAdherent, :DateInscription, :codeTournoi)";
-        Query query = em.createQuery(hql);
-        query.setParameter("numeroAdherent", numAdherent );
-        query.setParameter("dateInscription",dateInsc );
-        query.setParameter("codeTournoi", codeTournoi);
-        query.executeUpdate();
+    public static boolean insertIntoInscrption(AdherentEntity adherent, int codeTournoi) {
+        for(TournoiEntity tournoi : getTournois(adherent)) {
+            if(tournoi.getCodeTournoi() == codeTournoi) {
+                return true;
+            }
+        }
+
+        InscriptionEntity inscriptionEntity = new InscriptionEntity();
+        inscriptionEntity.setCodeTournoi(codeTournoi);
+        inscriptionEntity.setNumeroAdherent(adherent.getNumeroAdherent());
+        inscriptionEntity.setDateInscription(new java.sql.Date((new Date()).getTime()));
+        try {
+            em.getTransaction().begin();
+            em.persist(inscriptionEntity);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            System.err.println("Erreur: " + e.getMessage());
+        }
+        return false;
     }
 
+    public static TournoiEntity getTournoi(int codeTournoi) {
+        for(TournoiEntity tournoi : getTournoiEntities()) {
+            if(tournoi.getCodeTournoi() == codeTournoi) {
+                return tournoi;
+            }
+        }
+        return null;
+    }
+
+    public static void removeFromInscription(int numAdh, int codeTournoi) {
+        try {
+            Query query = em.createQuery("from InscriptionEntity where numeroAdherent = :numeroAdherent and " +
+                    "codeTournoi = :codeTournoi") ;
+            query.setParameter("codeTournoi", codeTournoi);
+            query.setParameter("numeroAdherent", numAdh);
+            InscriptionEntity inscriptionEntity = (InscriptionEntity) query.getSingleResult() ;
+            em.getTransaction().begin();
+            em.remove(inscriptionEntity);
+            em.getTransaction().commit();
+        } catch (NoResultException e) {
+            System.err.println("Erreur: " + e.getMessage());
+        }
+    }
 
 
 }
