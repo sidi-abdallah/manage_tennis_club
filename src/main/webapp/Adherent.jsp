@@ -10,12 +10,28 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <titl>Adherent</titl></title>
+    <title>Adherent</title>
+    <link href="stylesheet.css" rel="stylesheet">
 </head>
 <body>
+<header>
+    <table>
+        <tr>
+            <td>
+                <img src="./images/ensi_logo.png">
+            </td>
+            <td>
+                <p>ENSICAEN Tennis club<br>6 Avenue  du Marechal Juin<br>14050 Caen Cedex<br>Tél : 02.51.45.27.89</p>
+            </td>
+        </tr>
+    </table>
+</header>
+
 <% AdherentEntity adh = (AdherentEntity) request.getSession().getAttribute("adherent");
     List<TournoiEntity> tournois = (List<TournoiEntity>) request.getAttribute("tournois");
 %>
+
+<div class="infos-adherent">
     <h1> Informations adhérent </h1>
     <table>
         <tr>
@@ -23,7 +39,7 @@
             <td> <%=adh.getNumeroAdherent ()%></td>
         </tr>
         <tr>
-        <td> Nom </td>
+            <td> Nom </td>
             <td> <%=adh.getNom()%></td>
         </tr>
         <tr>
@@ -44,24 +60,28 @@
         </tr>
 
     </table>
-    <h1>Tournois auxquels vous êtes inscrits</h1>
-<table>
-    <th>
-    <td> Code</td>
-    <td> Nom </td>
-    <td> Date</td>
-    <td> Lieu</td>
-    </th>
-   <% for(TournoiEntity tournoi : tournois) { %>
-    <tr><td> <%= tournoi.getCodeTournoi()%></td>
-        <td><%= tournoi.getNom() %></td>
-        <td><%= tournoi.getDate() %></td>
-        <td><%= tournoi.getLieu() %></td>
-        <td> <a href = "actionServlet?action=D&codeTournoi=<%=tournoi.getCodeTournoi()%>">  Desinscription</a></td>
-    </tr>
-        <% } %>
-</table>
 
-<p> <a href = "Menu.jsp"> Revenir au menu principal</a></p>
+</div>
+<div class="tournois-adherent">
+    <h1>Tournois auxquels vous êtes inscrits</h1>
+    <table>
+        <tr>
+        <th> Code</th>
+        <th> Nom </th>
+        <th> Date</th>
+        <th> Lieu</th>
+        <th></th>
+        </tr>
+        <% for(TournoiEntity tournoi : tournois) { %>
+        <tr><td> <%= tournoi.getCodeTournoi()%></td>
+            <td><%= tournoi.getNom() %></td>
+            <td><%= tournoi.getDate() %></td>
+            <td><%= tournoi.getLieu() %></td>
+            <td> <a href = "actionServlet?action=D&codeTournoi=<%=tournoi.getCodeTournoi()%>">  Desinscription</a></td>
+        </tr>
+        <% } %>
+    </table>
+</div>
+<a href = "Menu.jsp" id="back-to-menu"> <== Revenir au menu principal</a>
 </body>
 </html>

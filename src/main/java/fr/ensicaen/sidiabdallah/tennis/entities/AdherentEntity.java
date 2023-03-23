@@ -1,12 +1,11 @@
 package fr.ensicaen.sidiabdallah.tennis.entities;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "`Adherent`", schema = "sidi-abdallah", catalog = "clinique")
 public class AdherentEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "`numeroAdherent`")
     private int numeroAdherent;
@@ -28,9 +27,6 @@ public class AdherentEntity {
     @Basic
     @Column(name = "`Password`")
     private String password;
-
-//    @OneToMany(mappedBy = "numeroAdherent")
-//    private Set<InscriptionEntity> inscriptions;
 
     public int getNumeroAdherent() {
         return numeroAdherent;
@@ -87,14 +83,6 @@ public class AdherentEntity {
     public void setPassword(String password) {
         this.password = password;
     }
-
-//    public Set<InscriptionEntity> getInscriptions() {
-//        return inscriptions;
-//    }
-//
-//    public void setInscriptions(Set<InscriptionEntity> inscriptions) {
-//        this.inscriptions = inscriptions;
-//    }
 
     @Override
     public boolean equals(Object o) {

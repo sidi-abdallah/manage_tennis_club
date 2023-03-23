@@ -2,18 +2,48 @@
 <html lang = "en">
 <head>
     <meta charset="UTF-8">
+    <link href = "stylesheet.css" rel = "stylesheet">
     <title>Page de connexion</title>
 </head>
-
 <body>
-<h1>Page de connexion</h1>
-<form action = "./actionServlet" method = "post">
-    <label for="email">e-mail adresse:</label><br>
-    <input type="email" id="email" name="email"><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password"><br>
-    <input type="hidden" name="action" value="L">
-    <button type="submit">Se connecter</button>
-</form>
+    <header>
+        <table>
+            <tr>
+                <td>
+                    <img src="./images/ensi_logo.png">
+                </td>
+                <td>
+                    <p>ENSICAEN Tennis club<br>6 Avenue  du Marechal Juin<br>14050 Caen Cedex<br>Tél : 02.51.45.27.89</p>
+                </td>
+            </tr>
+        </table>
+    </header>
+    <div class = "main-content">
+
+        <h1>Page de connexion</h1>
+        <form action = "./actionServlet" method = "post">
+            <table>
+                <tr>
+                    <td><label for="email">e-mail adresse:</label></td>
+                    <td><input type="email" id="email" name="email"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password:</label></td>
+                    <td><input type="password" id="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td><input type="hidden" name="action" value="L"></td>
+                    <td><button type="submit" id="Submit">Se connecter</button></td>
+                </tr>
+                <tr>
+                    <td colspan="10">
+<!--                        <a href = "CreateAccount.html" id="newAccount"> Créer un compte</a>-->
+                        <button id="newAccount"><a href = "CreateAccount.html" > Créer un compte</a></button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
 </body>
 </html>

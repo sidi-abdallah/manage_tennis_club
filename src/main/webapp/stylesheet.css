@@ -1,0 +1,255 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    /*background-image: url("images/stadium.png");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+
+}
+
+header {
+    height: 30%;
+    width: 100%;
+    background-image: url("images/stadium.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+header > table {
+    margin: auto;
+    color: blanchedalmond;
+    font-family: cursive;
+
+}
+
+header > table > tr > td > img{
+    background: none;
+}
+
+
+body {
+    background-image: url("images/stadium.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.main-content {
+    height: 100vh;
+    width: 100%;
+    border: 2px black solid;
+    border-radius: 10px;
+
+}
+
+.main-content > h1 {
+    margin: 2em;
+    font-family: cursive;
+    text-align: center;
+    color: blanchedalmond;
+}
+
+.main-content > p {
+    margin: 2em;
+    font-family: cursive;
+    text-align: center;
+    color: blanchedalmond;
+}
+
+.main-content > form > table{
+    height: 30vh;
+    margin:  2em auto;
+    background-image: url("./images/stade.jpg");
+    color: blanchedalmond;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+#Submit {
+    margin: auto;
+}
+
+#newAccount {
+    /*margin: 1em 3em;*/
+    padding: 1em;
+    background-color: cadetblue;
+}
+
+
+.menu-content {
+    height: 100vh;
+    width: 100%;
+    border: 2px black solid;
+    border-radius: 10px;
+
+}
+
+.menu-content > h1 {
+    margin: 2em;
+    font-family: cursive;
+    text-align: center;
+    color: blanchedalmond;
+}
+
+.menu-content > ul {
+    margin: 2em;
+    font-family: cursive;
+    text-align: center;
+    color: blanchedalmond;
+    border: solid beige 2px;
+}
+
+.menu-content > ul > li {
+    font-family: Arial;
+    font-size: x-large;
+    /*background-image: url("./images/stade.jpg");*/
+    list-style: none;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.menu-content > ul > li > a{
+    text-decoration: none;
+    color: lightgreen;
+}
+.menu-content > ul > li > a:hover{
+    text-decoration: none;
+    color: lightseagreen;
+}
+
+.infos-adherent {
+    height: max-content;
+    width: 100%;
+}
+
+.infos-adherent > h1 {
+    margin: 1em;
+    font-family: cursive;
+    text-align: center;
+    color: blanchedalmond;
+}
+
+.infos-adherent > table{
+    height: max-content;
+    margin:  2em auto;
+    color: rosybrown;
+    padding: 10px;
+    border-spacing: 0.8em;
+    border: solid blanchedalmond 2px;
+    border-radius: 10px;
+
+}
+
+.infos-adherent > table > tr > td{
+    font-family: Arial;
+    font-size: medium;
+}
+
+
+
+
+.tournois-adherent {
+    height: max-content;
+    width: 100%;
+}
+
+.tournois-adherent > h1 {
+    margin: 1em;
+    font-family: cursive;
+    text-align: center;
+    color: blanchedalmond;
+}
+
+.tournois-adherent > table{
+    height: max-content;
+    margin:  2em auto;
+    padding: 10px;
+    border-spacing: 0.8em;
+    color: brown;
+    font-family: cursive;
+    font-size: larger;
+    border: solid blanchedalmond 2px;
+    border-radius: 10px;
+    /*font-;*/
+
+}
+
+.tournois-adherent > table > tr > td{
+    font-family: Arial;
+    font-size: x-large;
+
+}
+
+.tournois-adherent > table > tr > th{
+    font-family: cursive;
+    font-size: medium;
+
+}
+
+#back-to-menu {
+    margin: 40em;
+    font-family: cursive;
+    font-size: larger;
+    color: rosybrown;
+}
+
+
+#back-to-menu:hover {
+    margin: 40em;
+    font-family: cursive;
+    font-size: larger;
+    color: brown;
+}
+
+
+.tournois-content > h1 {
+    margin: 1em;
+    font-family: cursive;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.tournois-content > table{
+    height: max-content;
+    margin:  2em auto;
+    padding: 10px;
+    border-spacing: 0.8em;
+    color: lightgreen;
+    font-family: cursive;
+    font-size: larger;
+    border: solid beige 2px;
+    border-radius: 10px;
+
+}
+
+.tournois-content > table > tr > td{
+    font-family: Arial;
+    font-size: x-large;
+
+}
+
+#inscription-tournoi {
+    color: rosybrown;
+}
+
+#inscription-tournoi:hover {
+    color: brown;
+}
+
+
+
+.tournois-status > h1 {
+    margin: 1em;
+    font-family: cursive;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.tournois-status > h2 {
+    margin: 1em;
+    font-family: cursive;
+    text-align: center;
+    color: whitesmoke;
+}

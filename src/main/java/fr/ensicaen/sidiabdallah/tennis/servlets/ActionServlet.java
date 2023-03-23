@@ -18,6 +18,10 @@ public class ActionServlet extends HttpServlet {
         // get the session and don't create it if it doesn't exist
         HttpSession session = request.getSession(false);
 
+        if(action.equals("L")) {
+            dispatcher = request.getRequestDispatcher("./loginServlet");
+            dispatcher.forward(request, response);
+        }
         if (session != null) {
 
             if(action.equals("A")) {
@@ -39,10 +43,11 @@ public class ActionServlet extends HttpServlet {
             }
 
         } else {
-            if(action.equals("L")) {
-                dispatcher = request.getRequestDispatcher("./loginServlet");
+            if(action.equals("C")) {
+                dispatcher = request.getRequestDispatcher("./newAccountServlet");
                 dispatcher.forward(request, response);
             }
+
             else {
 
                 dispatcher = request.getRequestDispatcher("./Login.html");
