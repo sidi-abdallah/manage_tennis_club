@@ -2,11 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link href = "stylesheet.css" rel = "stylesheet">
+
     <title>Inscription</title>
     <style>
         /* Style pour les champs de saisie */
         input[type=text], input[type=email], input[type=tel], input[type=password] {
-            width: 100%;
+           // width: 100%;
             padding: 12px 20px;
             margin: 8px 0;
             box-sizing: border-box;
@@ -42,40 +44,99 @@
     </style>
 </head>
 <body>
+<header>
+    <table>
+        <tr>
+            <td>
+                <img src="./images/ensi_logo.png">
+            </td>
+            <td>
+                <p>ENSICAEN Tennis club<br>6 Avenue  du Marechal Juin<br>14050 Caen Cedex<br>Tél : 02.51.45.27.89</p>
+            </td>
+        </tr>
+    </table>
+</header>
 
+<div class = "main-content">
 <h2>Inscription</h2>
 
 <form method="post" action="actionServlet">
+<table>
+    <tr>
+        <td>
+            <label for="nom">Nom:</label> </td>
+          <td>  <input type="text" id="nom" name="firstName" required>
+        </td>
+    </tr>
 
-    <label for="nom">Nom:</label>
-    <input type="text" id="nom" name="firstName" required>
+    <tr>
+        <td>
+            <label for="prenom">Prénom:</label>
+        </td>
 
-    <label for="prenom">Prénom:</label>
-    <input type="text" id="prenom" name="lastName" required>
+        <td>
+        <input type="text" id="prenom" name="lastName" required>
+        </td>
+    </tr>
+    <tr>
+        <td>
+             <label for="prenom">Adresse:</label> </td>
+        <td>
+        <input type="text" id="adresse" name="adresse" required>
+        </td>
+    </tr>
 
-    <label for="prenom">Adresse:</label>
-    <input type="text" id="adresse" name="adresse" required>
+    <tr>
+        <td>
+            <label for="email">E-mail:</label>        </td>
 
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" name="email" required>
+        <td>
+        <input type="email" id="email" name="email" required>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="tel">Numéro de téléphone:</label>
+        </td>
+        <td>
+        <input type="tel" id="tel" name="tel" required>
+        </td>
+    </tr>
 
-    <label for="tel">Numéro de téléphone:</label>
-    <input type="tel" id="tel" name="tel" required>
+    <tr>
+        <td>
+            <label for="mdp1">Mot de passe:</label>        </td>
 
-    <label for="mdp1">Mot de passe:</label>
-    <input type="password" id="mdp1" name="mdp1" required>
+        <td>
+        <input type="password" id="mdp1" name="mdp1" required>
+        </td>
+    </tr>
 
-    <label for="mdp2">Confirmer le mot de passe:</label>
-    <input type="password" id="mdp2" name="mdp2" required>
+    <tr>
+        <td>
+            <label for="mdp2">Confirmer le mot de passe:</label>        </td>
 
+        <td>
+        <input type="password" id="mdp2" name="mdp2" required>
+        </td>
+    </tr>
+    <tr>
     <!-- Affichage du message d'erreur si les deux champs de mot de passe ne correspondent pas -->
-    <p id="erreur_mdp" class="error"></p>
+        <td>
+        <p id="erreur_mdp" class="error"></p>
+        </td>
+    </tr>
 
-    <input type="submit" value="register">
+    <tr>
+        <td>
+            <input type="submit" value="register">
+        </td>
+    </tr>
 
     <input type="hidden" name="action" value="C">
-
+</table>
 </form>
+</div>
 
 <script>
     // Vérification que les deux champs de mot de passe correspondent

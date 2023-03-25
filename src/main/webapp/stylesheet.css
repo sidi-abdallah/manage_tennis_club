@@ -185,10 +185,9 @@ body {
 .tournois-adherent > table > tr > th{
     font-family: cursive;
     font-size: medium;
-
 }
 
-#back-to-menu {
+#back{
     margin: 40em;
     font-family: cursive;
     font-size: larger;
@@ -196,7 +195,7 @@ body {
 }
 
 
-#back-to-menu:hover {
+#back:hover {
     margin: 40em;
     font-family: cursive;
     font-size: larger;
@@ -247,7 +246,7 @@ body {
     color: whitesmoke;
 }
 
-.tournois-status > h2 {
+.tournois-status > h2{
     margin: 1em;
     font-family: cursive;
     text-align: center;

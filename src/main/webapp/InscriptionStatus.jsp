@@ -43,7 +43,7 @@
     </h2>
     <%}%>
 </div>
-<a href = "Menu.jsp" id="back-to-menu"> retour à la page Menu </a>
+<a href = "Menu.jsp" id="back"> retour à la page Menu </a>
 
 </body>
 </html>

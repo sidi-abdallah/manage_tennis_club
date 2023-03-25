@@ -48,6 +48,6 @@
     </table>
 </div>
 
-<a href = "Menu.jsp" id="back-to-menu"> <== Revenir au menu principal</a>
+<a href = "Menu.jsp" id="back"> <== Revenir au menu principal</a>
 </body>
 </html>

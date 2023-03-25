@@ -9,16 +9,31 @@
 <html>
 <head>
     <title> create Account status</title></title>
+    <link href = "stylesheet.css" rel = "stylesheet">
 </head>
 <body>
-<%boolean isInserted = (boolean) request.getAttribute("isInserted");%>
+<header>
+    <table>
+        <tr>
+            <td>
+                <img src="./images/ensi_logo.png">
+            </td>
+            <td>
+                <p>ENSICAEN Tennis club<br>6 Avenue  du Marechal Juin<br>14050 Caen Cedex<br>Tél : 02.51.45.27.89</p>
+            </td>
+        </tr>
+    </table>
+</header>
 
-<h2><%if(!isInserted) {
-%> Vous avez déja un compte%>
-    <%} else {
-    %> Votre compte a été créeé avec succes%>
-</h2>
-<%}%>
-<p><a href = "Login.html"> retour à la page de login </a> </p>
+<%boolean isInserted = (boolean) request.getAttribute("isInserted");%>
+<div class="tournois-status">
+    <h2><%if(!isInserted) {
+    %> Vous avez déja un compte
+        <%} else {
+        %> Votre compte a été créeé avec succes
+    </h2>
+    <%}%>
+</div>
+<a href = "Login.html" id = "back"> <= retour à la page de login </a>
 </body>
 </html>

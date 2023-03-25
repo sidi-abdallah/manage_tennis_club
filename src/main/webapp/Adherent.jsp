@@ -32,6 +32,7 @@
 %>
 
 <div class="infos-adherent">
+    <h1> Vous êtes <%=adh.getNom() + " "%> <%=adh.getPrenom()%> </h1>
     <h1> Informations adhérent </h1>
     <table>
         <tr>
@@ -82,6 +83,6 @@
         <% } %>
     </table>
 </div>
-<a href = "Menu.jsp" id="back-to-menu"> <== Revenir au menu principal</a>
+<a href = "Menu.jsp" id="back"> <== Revenir au menu principal</a>
 </body>
 </html>

@@ -22,6 +22,12 @@ public class ActionServlet extends HttpServlet {
             dispatcher = request.getRequestDispatcher("./loginServlet");
             dispatcher.forward(request, response);
         }
+
+        if(action.equals("C")) {
+            dispatcher = request.getRequestDispatcher("./newAccountServlet");
+            dispatcher.forward(request, response);
+        }
+
         if (session != null) {
 
             if(action.equals("A")) {
@@ -43,8 +49,8 @@ public class ActionServlet extends HttpServlet {
             }
 
         } else {
-            if(action.equals("C")) {
-                dispatcher = request.getRequestDispatcher("./newAccountServlet");
+            if(action.equals("L")) {
+                dispatcher = request.getRequestDispatcher("./loginServlet");
                 dispatcher.forward(request, response);
             }
 
