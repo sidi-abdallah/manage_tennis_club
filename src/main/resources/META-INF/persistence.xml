@@ -10,10 +10,10 @@
         <class>fr.ensicaen.sidiabdallah.tennis.entities.TournoiEntity</class>
         <properties>
             <property name="hibernate.connection.url"
-                      value="jdbc:postgresql://postgres.ecole.ensicaen.fr:5432/clinique"/>
+                      value="jdbc:postgresql://postgres.ecole.ensicaen.fr:5432/clinique"/> 
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-            <property name="hibernate.connection.password" value="Mokhtar19012"/>
-            <property name="hibernate.connection.username" value="sidi-abdallah"/>
+            <property name="hibernate.connection.password" value="Your password"/>
+            <property name="hibernate.connection.username" value="Your id"/>
             <property name="hibernate.dialect" value="fr.ensicaen.sidiabdallah.tennis.appli.Dialecte"/>
             <property name="hibernate.c3p0.timeout" value="300"/>
         </properties>

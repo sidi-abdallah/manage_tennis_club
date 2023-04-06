@@ -21,7 +21,7 @@ public class Hashing {
     public static String hashPassword(String password) /*throws NoSuchAlgorithmException*/ {
         MessageDigest digest = null;
         try {
-            digest = MessageDigest.getInstance("SHA-256");
+            digest = MessageDigest.getInstance("SHA-256"); // Must be replaced by bcrypt because it's slower, so better for passwords
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
