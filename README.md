@@ -15,10 +15,10 @@
 
 The website is designed for managing a tennis club, allowing users to create accounts and sign up for or withdraw from tennis tournaments at their discretion.
 
-You could see the project parts interactions [here](/src/resources/structure.png). 
+You could see the project parts interactions [here](/src/main/resources/structure.png). 
 This project was developed with the intention of applying the knowledge and skills acquired in Java technologies (J2EE...) and the domain of website security at ENSICAEN.
 
-To test or reuse the code, a database like this [database](/src/resources/BDD.png) must be created. If desired, the database's structure and variable types can be viewed by examining the entities contained in the fr.ensicaen.sidiabdallah.entities package.
+To test or reuse the code, a database like this [database](/src/main/resources/BDD.png) must be created. If desired, the database's structure and variable types can be viewed by examining the entities contained in the fr.ensicaen.sidiabdallah.entities package.
 
 ## Project structure
 
